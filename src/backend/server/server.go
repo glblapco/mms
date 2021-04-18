@@ -1,9 +1,16 @@
 package server
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func Port() {
-	fmt.Println("Port!")
+	if(len(os.Args) == 2) {
+		fmt.Println("Please, specify a port.")
+	} else {
+		port := os.Args[2]
+		fmt.Printf("Port is %s\n", port)
 }
 
 func Start() {
