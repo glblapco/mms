@@ -15,7 +15,6 @@ func help() {
 	fmt.Println("Usage: mms [Arguments]")
 	fmt.Println("Arguments:")
 	fmt.Println("  -s: Start local server.")
-	fmt.Println("  -p: Set local server port.")
 	fmt.Println("  -h: Show help.\n")
 }
 
@@ -26,9 +25,6 @@ func main() {
 		switch(os.Args[1]) {
 			case "-s":
 				server.Start()
-				break
-			case "-p":
-				server.Port()
 				break
 			case "-h":
 				help()
