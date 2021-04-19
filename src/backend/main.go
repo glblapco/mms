@@ -33,7 +33,7 @@ func main() {
 				help()
 				break
 			default:
-				help()
+				fmt.Println("Invalid argument.")
 				break
 		}
 	}
