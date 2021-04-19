@@ -2,23 +2,21 @@ package server
 
 import (
 	"fmt"
+	"os"
 )
 
-var port string = "9000"
+var port string = "8080"
 
-/* @@@TODO (0xbiel): Port function is bad, ugly and confusing, 
-                     need a better approach to it.
-                     Disabling it for now.
-func Port() {
-	if(len(os.Args) == 2) {
-		fmt.Println("Please, specify a port.")
-	} else {
-		port := os.Args[2]
-		fmt.Printf("Port is %s\n", port)
-		Start(port);
-	}
-}*/
+/* If no port number is specified after '-s',
+ * start local server on port 8080.
+ * If port number is specified after '-s',
+ * start local server on given port.*/
 
 func Start() {
-	fmt.Printf("Starting local server on port %s.\n", port)
+	if(len(os.Args) == 2) {
+		port = port
+	} else {
+		port = os.Args[2]
+	}
+		fmt.Printf("Starting local server on port %s.\n", port)
 }

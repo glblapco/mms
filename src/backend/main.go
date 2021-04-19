@@ -16,6 +16,9 @@ func help() {
 	fmt.Println("Arguments:")
 	fmt.Println("  -s: Start local server.")
 	fmt.Println("  -h: Show help.\n")
+	fmt.Println("Examples:")
+	fmt.Println("  $ mms -s: Starts local server on port 8080.")
+	fmt.Println("  $ mms -s 9000: Starts local server on port 9000.\n")
 }
 
 func main() {
