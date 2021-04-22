@@ -29,6 +29,15 @@ func filterArg(str string) string {
 }
 
 func home(rw http.ResponseWriter, req *http.Request) {
+	if(req.URL.Path != "/") {
+		http.Error(rw, "Page Not Found.", http.StatusNotFound)
+		return
+	}
+
+	if (req.Method != "GET") {
+		http.Error(rw, "Not supported.", http.StatusNotFound)
+		return
+	}
 	fmt.Println("Home!")
 }
 
@@ -42,8 +51,7 @@ func Start() {
 	if(len(os.Args) == 2) {
 		port = port
 	} else {
-		filterArg(os.Args[2])
-		port = ":" + os.Args[2]
+		port = ":" + filterArg(os.Args[2])
 	}
 	fmt.Printf("Starting server at localhost%s\n", port)
 	http.HandleFunc("/", home)
