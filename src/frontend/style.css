@@ -1,0 +1,29 @@
+body {
+	font: 16px sans-serif,sans-serif;
+	margin: 0 auto;
+	width: 70%;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+header pre {
+	font-weight: bold; 
+	font-size: 12px;
+}
+
+.selected {color: black;}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
