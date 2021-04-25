@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	server "proj/mms/src/backend/server"
+	server "proj/mms/src/server"
 	"os"
 )
 
