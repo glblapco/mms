@@ -28,19 +28,13 @@ func filterArg(str string) string {
 	return str
 }
 
-/*func serve(rw http.ResponseWriter, req *http.Request) {
-	if(req.URL.Path != "/") {
-		http.Error(rw, "Page Not Found.", http.StatusNotFound)
-		return
-	}
-
+func serve(rw http.ResponseWriter, req *http.Request) {
 	if (req.Method != "GET") {
 		http.Error(rw, "Not supported.", http.StatusNotFound)
 		return
 	}
-
-	http.ServeFile(rw, req, "../../frontend/index.html")
-}*/
+	http.ServeFile(rw, req, req.URL.Path[1:])
+}
 
 /* @@@(Biel A. P.): If no port number is 
  * specified after '-s', start local 
@@ -55,7 +49,6 @@ func Start() {
 		port = ":" + filterArg(os.Args[2])
 	}
 	fmt.Printf("Starting server at localhost%s\n", port)
-	//http.HandleFunc("/", serve)
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request){http.ServeFile(w, r, r.URL.Path[1:])})
+	http.HandleFunc("/", serve)
 	log.Fatal(http.ListenAndServe(port, nil))
 }
