@@ -36,6 +36,10 @@ func serve(rw http.ResponseWriter, req *http.Request) {
 	http.ServeFile(rw, req, req.URL.Path[1:])
 }
 
+func newTask(rw http.ResponseWriter, req *http.Request) {
+	fmt.Println("Form.")
+}
+
 /* @@@(Biel A. P.): If no port number is 
  * specified after '-s', start local 
  * server on port 8080. If port number 
@@ -50,5 +54,6 @@ func Start() {
 	}
 	fmt.Printf("Starting server at localhost%s\n", port)
 	http.HandleFunc("/", serve)
+	http.HandleFunc("/new", newTask)
 	log.Fatal(http.ListenAndServe(port, nil))
 }
