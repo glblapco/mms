@@ -3,6 +3,16 @@
 		<title>mms</title>
 		<link rel="stylesheet" href="./server/frontend/style.css"</link>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+label {margin: 10px;}
+input {
+	width: 100%;
+	padding: 10px;
+	margin: 10px;
+	resize: vertical;
+}
+input[type=submit] {cursor: pointer;}
+</style>
 	</head>
 	<body>
 		<header>
@@ -12,23 +22,27 @@
 |_|_|_|_|_|_|___|
 			</pre>
 			<div class="menu">
-				<a class="selected">Tasks</a> -
-				<a href="new.html">New</a>
+				<a class="selected" >New</a> -
+				<a href="tasks.html">Tasks</a>
 			</div>
 		</header>
 		<main>
-			<table>
-				<tr>
-					<th>Company</th>
-					<th>Task</th>
-					<th>Deadline</th>
-				</tr>
-				<tr>
-					<td>Aperio</td>
-					<td>Configure web server.</td>
-					<td>2021.04.24</td>
-				</tr>
-			</table>
+			<form method="POST" action="/new">     
+				<label>Company</label>
+				<br/>
+				<input name="Company" type="text" value="" />
+				<br/>
+				<label>Task</label>
+				<br/>
+				<input name="Task" type="text" value="" />
+				<br/>
+				<label>Deadline</label>
+				<br/>
+				<input name="Deadline" type="text" value="" />
+				<br/><br/>
+				<input type="submit" value="Submit" />
+				<br/>
+			</form>
 		</main>
 	</body>
 </html>

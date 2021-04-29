@@ -37,7 +37,14 @@ func serve(rw http.ResponseWriter, req *http.Request) {
 }
 
 func newTask(rw http.ResponseWriter, req *http.Request) {
-	fmt.Println("Form.")
+	//fmt.Println("Form.")
+	company := req.FormValue("Company")
+	task := req.FormValue("Task")
+	deadline := req.FormValue("Deadline")
+
+	fmt.Println(company)
+	fmt.Println(task)
+	fmt.Println(deadline)
 }
 
 /* @@@(Biel A. P.): If no port number is 

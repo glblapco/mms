@@ -15,15 +15,14 @@ header pre {
 	font-size: 12px;
 }
 
-.selected {color: black;}
-
-table {
-	border-collapse: collapse;
+form {
+	margin: 0 auto;
 	width: 100%;
 }
 
-td, th {
-	border: 1px solid #dddddd;
-	text-align: left;
-	padding: 8px;
+input {
+	padding: 12px;
+	resize: vertical;
 }
+
+.selected {color: black;}
