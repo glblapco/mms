@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"log"
 	"regexp"
-//	"io/ioutil"
 )
 
 var port string = ":8080"
@@ -42,10 +41,6 @@ func newTask(rw http.ResponseWriter, req *http.Request) {
 	task := req.FormValue("Task")
 	deadline := req.FormValue("Deadline")
 
-	fmt.Fprintf(rw, "%s\n", company)
-	fmt.Fprintf(rw, "%s\n", task)
-	fmt.Fprintf(rw, "%s\n", deadline)
-
 	data := "<p><b>" + company + "</b></p>" + "<p>" + task + "</p>" + "<p>" + deadline + "</p>"
 
 	f, err := os.OpenFile("tasks.html", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
@@ -56,9 +51,8 @@ func newTask(rw http.ResponseWriter, req *http.Request) {
 	if _, err = f.WriteString(data); err != nil {
 		panic(err)
 	}
+	http.ServeFile(rw, req, "tasks.html")
 }
-
-//@@@TODO (Biel A. P.): After storing the data, redirect to Home Page again.
 
 /* @@@(Biel A. P.): If no port number is 
  * specified after '-s', start local 
@@ -74,6 +68,6 @@ func Start() {
 	}
 	fmt.Printf("Starting server at localhost%s\n", port)
 	http.HandleFunc("/", serve)
-	http.HandleFunc("/new", newTask)
+	http.HandleFunc("/tasks", newTask)
 	log.Fatal(http.ListenAndServe(port, nil))
 }
