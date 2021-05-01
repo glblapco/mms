@@ -38,7 +38,6 @@ func serve(rw http.ResponseWriter, req *http.Request) {
 }
 
 func newTask(rw http.ResponseWriter, req *http.Request) {
-	//fmt.Println("Form.")
 	company := req.FormValue("Company")
 	task := req.FormValue("Task")
 	deadline := req.FormValue("Deadline")
