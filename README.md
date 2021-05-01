@@ -4,7 +4,7 @@
 
 This is a personal project to practice Go and to manage my consultancy jobs.
 
-![](./demo.mp4)
+![](./demo.gif)
 
 ## Usage
 
